@@ -1,0 +1,431 @@
+@import '../scss/utilities/_mixins.scss';
+@import '../scss/utilities/_variables.scss';
+
+
+/************* 
+HEADER
+**************/
+
+header{
+    position: fixed;
+    margin:auto;
+    width:100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index:99;
+    & img{
+        width:200px;
+        margin: 0 auto 0 1em;
+        
+    } & .container {
+        height:100%;
+        @include flexy($alitems:center);
+        padding: 0 0 0 25px;
+        max-width:100%;
+
+        & button{
+            display:none;
+            @include mq ('tablet'){
+            display: block;
+            margin-right:20px;
+            padding:12px 35px;
+            border-radius:15px;
+            background: linear-gradient(180deg, rgba(14,115,104,1) 0%, rgba(7,58,52,1) 35%);
+            border: solid 2px #fff;
+            color:#fff;
+            font-weight:600;
+            font-size:18px;
+            z-index:999;
+            }
+        }
+    } & .container .hamburgermenu{ 
+        width:80px;
+        height:65px;;
+        background-color:$background-teal;
+
+
+    } 
+    & .container .hamburgermenu svg{ 
+        width:35px;
+        height:35px;
+        fill: $yellow;
+    }
+
+
+}
+
+/************* 
+FORM
+**************/
+
+#form {
+    letter-spacing: .4em; 
+    & label{
+    color:$teal;
+    font-weight:900;
+    margin-bottom:20px;
+    }
+
+    & textarea{
+        height:140px;
+    }
+    & input, textarea{
+        background-color:$field-background ;
+        border:none;
+        margin:10px 0 20px 0;
+        width:100%;
+    }
+
+    br + input,
+    textarea{
+        border-bottom:#707070 1px solid;
+    }
+
+    & button{
+        font-family:"Poppins", sans-serif;
+        font-weight:900;
+        color:$teal;
+        background-color: $field-background;
+        border: #707070 1px solid;
+        padding:10px 20px;
+    } 
+
+    & .form-flex{
+       @include mq ('tablet'){
+           @include flexy($just:space-between);
+           & .input-flex{
+               width:48%;
+           }
+       }
+
+    }
+}
+
+/************* 
+FOOTER
+**************/
+
+footer{
+    & .footer-main{
+        & > img{
+            width:200px;
+            align-self: center;
+            margin-bottom:25px;
+            @include mq('tablet'){
+                align-self: flex-start;
+                margin-bottom: 0;
+            }
+        }
+        @include flexy($dir:column,$alitems:center);
+        @include mq ('tablet'){
+            @include flexy($dir:row, $just:space-between);
+        }
+    } & .social-icons img{
+        width:30px;
+        @include mq ('tablet'){
+            align-self: center;
+        }
+    }
+
+    .social-icons img:nth-child(2){
+        @include mq('tablet'){
+            margin: 0 15px;
+        }
+    }
+    background-color:$teal;
+
+    & .footer-menu, 
+      .contact-menu {
+          text-align: center;
+          @include mq ('tablet'){
+              text-align: left;
+          } 
+
+          & h5{
+              margin-top:0;
+          }
+      }
+
+      & .contact-menu{
+          margin-top:25px;
+          @include mq ('tablet'){
+              margin-top:0; 
+          }
+      }
+
+      & .divider{
+          margin-top:25px;
+          background-color: #fff;
+          padding: 1px 0 0 0;
+          @include mq ('tablet'){
+              margin-bottom:25px;
+          }
+      }
+
+      .privacy-policy-social{
+          @include flexy($dir:column, $alitems:center);
+          & .footer-link{
+              @include flexy ($dir:column, $alitems:center)
+          }
+          
+          & .social-icons{
+              @include flexy($just:space-between);
+              width:50%;
+
+              @include mq ('tablet'){
+                  @include flexy($just:flex-end);
+                  width:75px;
+
+              }
+              margin:25px 0;
+
+              @include mq ('tablet'){
+                  margin: 0;
+              }
+
+          }
+
+          & div{
+              flex:1;
+          }
+
+          @include mq ('tablet'){
+              @include flexy($dir:row, $alitems:center);
+              & .footer-link{
+                  @include flexy($just:space-between, $dir:row);
+              }
+          }
+
+          & p {
+            @include mq ('tablet'){
+                font-size:11px;
+            }
+            @include mq ('desktop'){
+                font-size: 14px;
+            }
+          }
+
+          & p:nth-child(1){
+              font-weight:bold;
+          }
+              }
+       
+}
+
+/************* 
+HAMBURGER MENU
+**************/
+
+ng-sidebar-container{
+    height:100vh;
+}
+
+
+header{
+
+    & .hamburgermenu > ng-sidebar-container .ng-sidebar__content > div{
+        width:80px;
+        height:65px;
+        @include flexy($just:center, $alitems:center);
+        cursor:pointer;
+
+
+    }
+
+    & .sidebar-main-content{
+                padding:4em 2em 2em 5em;
+        @media(min-width: 300px) and (max-width: 400px){
+            padding:4em 2em 2em 2em;
+                }         
+    }
+    
+    & .menu-cancel-container{
+        @include flexy($just:center, $alitems:center);
+        width: 80px;
+        height:65px;
+        background-color:$yellow;
+        margin-left:auto;
+        cursor: pointer;
+        padding:15px 0;
+        & svg{
+            fill:#fff!important;
+        }
+    }
+
+    & .hamburgermenu > ng-sidebar-container ::ng-deep .ng-sidebar{
+        background-color: $teal;
+        width:450px;
+        @include flexy($dir:column);
+        overflow:auto;
+        z-index:1000;
+
+        @media(min-width: 300px) and (max-width: 400px){
+            position: fixed;
+            width:100%;
+        }
+
+    }
+
+    & ng-sidebar-container{ 
+        left:-369px;
+        width:450px;
+    }
+
+    & .ng-sidebar__content{
+        left:369px!important;
+    }
+
+    & .ng-sidebar--closed{
+        transform: translateX(101%)!important;
+    }
+
+    & #menu-main-links{
+        width:initial;
+        height:initial;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    &  .main-menu-link-item{
+        height:initial!important;
+        @include flexy($dir:column);
+        margin-bottom:25px;
+
+        & .open_menu {
+            font-size:45px;
+            font-weight:400;
+            margin:0;
+             svg{
+                width:20px!important;
+                height:20px!important;
+                margin-left:auto;
+            }
+        }
+    }
+
+    & .submenu-heading{
+
+
+        & h4{
+            & span{
+                width:25px;
+                display:block;
+                height:2px;
+                background-color: #fff;
+            }
+        }
+
+        & .submenu-heading{
+            @include flexy($alitems:center);
+            & svg {
+                width:20px!important;
+                height:20px!important;
+                margin-left:auto;
+                margin: 20px 0 0 20px;
+
+            }
+        }
+    }
+
+    & .sidebar-submenu-links-container{
+        @include flexy($dir:column);
+        h2 {
+            margin-bottom:0;
+            font-size: 30px;
+            cursor:pointer;
+            transition: .2s all ease-in;
+        }
+        & h2:hover{
+            color:$yellow;
+        }
+        & span{
+            width:25px;
+            height:2px;
+            background-color:#fff;
+            display: block;
+            margin-right:10px;
+        }
+        & .sidebar-submenu-item h2 {
+            margin:0;
+        }
+        & .sidebar-submenu-item{
+            @include flexy($dir:row-reverse, $just:flex-end, $alitems:center);
+            margin-bottom:20px;
+        }
+    }
+
+
+
+    & .address h5, 
+      .lets-talk h5{
+          font-size:32px;
+          font-weight: 300;
+          letter-spacing: initial;
+          color:$yellow;
+          margin:0;
+      }
+
+     & .lets-talk{
+         margin-top:0;
+     } 
+
+     & .lets-talk{
+        margin-top:20px;
+    } 
+
+    & .social-icons{
+
+        @include mq ('tablet'){
+            @include flexy($just:flex-start);
+            margin:40px 0 0 0;
+
+        }
+        margin:25px 0;
+
+        & img {
+            width:30px;
+            margin:0;
+        }
+
+        & img:nth-child(2){
+            margin: 0 20px;
+        }
+
+    
+
+
+    }
+
+    & .close  svg{
+        fill:#fff!important;
+        transition:.2s all ease-out;
+        transform:rotate(0deg);
+    }
+
+    & .open  {
+        & svg{
+        fill:$yellow!important;
+        transform:rotate(90deg);
+        transition:.1s all ease-in;
+        }
+        & h1{
+            font-size:55px;
+            margin-bottom:20px;
+            color:$yellow;
+            font-weight:700;
+        }
+    }
+
+    & .submenu-heading{
+        width:100%;
+        @include flexy($alitems:center);
+        cursor:pointer;
+        & .open_menu{
+            margin-left:auto;
+        }
+    }
+
+
+
+}

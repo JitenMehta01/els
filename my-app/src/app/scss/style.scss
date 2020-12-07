@@ -1,0 +1,17 @@
+// =====================================
+// PARTIAL IMPORTS
+//======================================
+
+
+// utilities
+@import 'utilities/variables',
+'utilities/mixins';
+
+// base styles
+@import 'base/base-style';
+
+
+// components
+@import '../layout/layout.component.scss',
+'../pages/index/index.component.scss', 
+'components/_grid.scss';

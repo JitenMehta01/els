@@ -1,0 +1,40 @@
+* {
+    box-sizing:border-box;
+    font-family:$font-stack-primary;
+  }
+  
+  .container{
+    color:$white;
+    font-size:1rem;
+    font-family: $font-stack-primary;
+    max-width:1250px;
+    margin: 0 auto;
+    padding:25px;
+    @include mq('desktop'){
+        padding:50px;
+        max-width:1600px;
+    }
+    & h5 {
+      font-weight:800; 
+      letter-spacing: .4em;
+    }
+  }
+
+
+
+
+  p {
+    @include p;
+    line-height: 1.5em;
+  }
+   h1, h2, h3, h4 , h5, h6{
+    font-family: $font-stack-heading;
+   }
+
+   button{
+     cursor: pointer;  
+     }
+
+   button:focus{
+      outline: none;
+    } 
